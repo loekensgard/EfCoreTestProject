@@ -16,7 +16,7 @@ public class ForecastControllerTests(CustomWebApplicationFactory factory) : ICla
 
 
         //Act
-        var response = await _client.GetAsync($"/api/WeatherForecast");
+        var response = await _client.GetAsync($"/WeatherForecast");
         var responseBody = await response.Content.ReadFromJsonAsync<IEnumerable<WeatherForecast>>();
 
         //Assert
