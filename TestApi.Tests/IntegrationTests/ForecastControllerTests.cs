@@ -9,14 +9,13 @@ public class ForecastControllerTests(CustomWebApplicationFactory factory) : ICla
 {
 
     [Fact]
-    public async Task Get_PrivilegedAccessRequests_Without_CompanyId_Returns_Success()
+    public async Task Get_WeatherForecast_ReturnsSuccess()
     {
         //Arrange
         var _client = factory.CreateClient(new WebApplicationFactoryClientOptions { AllowAutoRedirect = false });
 
 
         //Act
-        var queryParam = $"?Status=TimedOut";
         var response = await _client.GetAsync($"/api/WeatherForecast");
         var responseBody = await response.Content.ReadFromJsonAsync<IEnumerable<WeatherForecast>>();
 
